@@ -44,18 +44,17 @@ const RegisterForm = () => {
         email: form.email,
         phone: form.phone,
       });
-showToast("Registration Successful!", "success");
-      // if (res.success) {
-      //   showToast("Registration Successful!", "success");
-      //   setForm({ name: "", email: "", phone: "" });
-      //   handleClose()
-      // } else {
-      //   const errorMsg =
-      //     typeof res.data === "string"
-      //       ? res.data
-      //       : res.data?.message || "Something went wrong!";
-      //   showToast(errorMsg, "error");
-      // }
+      if (res.success) {
+        showToast("Registration Successful!", "success");
+        setForm({ name: "", email: "", phone: "" });
+        handleClose()
+      } else {
+        const errorMsg =
+          typeof res.data === "string"
+            ? res.data
+            : res.data?.message || "Something went wrong!";
+        showToast(errorMsg, "error");
+      }
     } catch (err) {
       showToast("Unexpected error occurred.", "error");
     } finally {
